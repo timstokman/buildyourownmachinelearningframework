@@ -38,8 +38,7 @@ def loss(y_true: float, y_pred: float) -> float:
     """
     loss = 0.0
     for i in range(len(y_true)):
-        l_i = (y_true[i] - y_pred[i]) ** 2
-        loss += l_i
+        loss += (y_true[i] - y_pred[i]) ** 2
     return loss
 
 def loss_gradient_m(x: list[float], y_pred: list[float], y_true: list[float]) -> float:
