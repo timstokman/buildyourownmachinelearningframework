@@ -19,11 +19,11 @@ def model(x: list[float], weight_b: float, weight_m: float) -> list[float]:
     >>> model([-3, -6, -9], -5.0, -2.0)
     [1.0, 7.0, 13.0]
     """
-    all_y = []
+    y_pred = []
     for x_i in x:
-        y = weight_b + weight_m * x_i
-        all_y.append(y)
-    return all_y
+        y_i = weight_b + weight_m * x_i
+        y_pred.append(y_i)
+    return y_pred
 
 def loss(y_true: float, y_pred: float) -> float:
     """
