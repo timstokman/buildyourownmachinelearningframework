@@ -31,9 +31,9 @@ def loss(y_true: float, y_pred: float) -> float:
 
     >>> loss([], [])
     0.0
-    >>> round(loss([5, 7], [-1, 4]), 0)
+    >>> loss([5, 7], [-1, 4])
     45.0
-    >>> round(loss([1, 2], [-5, 4]), 0)
+    >>> loss([1, 2], [-5, 4])
     40.0
     """
     loss = 0.0
@@ -48,9 +48,9 @@ def loss_gradient_m(x: list[float], y_pred: list[float], y_true: list[float]) ->
 
     >>> loss_gradient_m([], [], [])
     0.0
-    >>> round(loss_gradient_m([5, 7], [-1, 4], [5, 4]), 0)
+    >>> loss_gradient_m([5, 7], [-1, 4], [5, 4])
     -30.0
-    >>> round(loss_gradient_m([-3, 4, 4], [-2, 0, 4], [1, 4, 0]), 0)
+    >>> loss_gradient_m([-3, 4, 4], [-2, 0, 4], [1, 4, 0])
     6.0
     """
     gradients = 0.0
@@ -63,12 +63,12 @@ def loss_gradient_b(x: list[float], y_pred: list[float], y_true: list[float]) ->
     """
     Calculate the gradients for the loss function for the weight b
 
-    >>> round(loss_gradient_b([], [], []), 0)
+    >>> loss_gradient_b([], [], [])
     0.0
-    >>> round(loss_gradient_b([5, 7], [-1, 4], [5, 4]), 0)
+    >>> loss_gradient_b([5, 7], [-1, 4], [5, 4])
     -6.0
-    >>> round(loss_gradient_b([-3, 4, 4], [-2, 0, 4], [1, 4, 0]), 0)
-    -2.0
+    >>> loss_gradient_b([-6, 4, 4], [-2, 0, 4, -16], [6, 4, 0, 8])
+    -16.0
     """
     gradients = 0.0
     n = len(y_pred)
