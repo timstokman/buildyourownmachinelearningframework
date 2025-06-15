@@ -1,9 +1,9 @@
 """
 Implement a linear regression model, optimize it with gradient decent
 
-Model: f(x) = b + x * m
+Model: y_pred(x) = b + x * m
 n: size of dataset
-Quadratic loss: l(y_pred, y_true) = ∑ i = 0..n (y_pred_i - y_true_i) ^ 2
+Quadratic loss: l(y_pred, y_true) = ∑ i = 1..n (y_pred_i - y_true_i) ^ 2
 Gradients loss for m: dL / dm = -2 / n ∑ i = 1..n (x_i * (y_true_i- y_pred_i))
 Weight update: weight = weight - learning_rate * gradient
 """
