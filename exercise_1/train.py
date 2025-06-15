@@ -1,4 +1,4 @@
-from model import model, loss, loss_gradient_b, loss_gradient_m
+from model import train_one_epoch
 
 if __name__ == "__main__":
     x = list(range(-10, 10))
@@ -7,11 +7,7 @@ if __name__ == "__main__":
     weight_m = 1
     weight_b = 0
     epochs = 5000
+    print(f"Starting model(x) = {weight_b} + {weight_m} * x")
     for i in range(epochs):
-        y_pred = model(x, weight_b, weight_m)
-        l = loss(y_pred, y_true)
-        grad_b = loss_gradient_b(x, y_pred, y_true)
-        grad_m = loss_gradient_m(x, y_pred, y_true)
-        weight_m = weight_m - learning_rate * grad_m
-        weight_b = weight_b - learning_rate * grad_b
-        print(f"epoch: {i}, loss: {l}, gradient: {grad_b}, {grad_m}, model(x): {weight_b} + {weight_m} * x")
+        weight_b, weight_m = train_one_epoch(i, x, y_true, weight_b, weight_m, learning_rate)
+    print(f"Final model(x) = {weight_b} + {weight_m} * x")
